@@ -1,1 +1,1 @@
-arcgis js for javascript
+arcgis api 3.x for javascript
