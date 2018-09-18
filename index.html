@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.25/esri/css/esri.css">
+    <script src="https://js.arcgis.com/3.25/"></script>
+</head>
+<body>
+<div style="height: 815px" id="mapDiv"></div>
+</body>
+<script>
+    var map;
+    function init() {
+        map = new esri.Map("mapDiv", {
+            center: [-118, 34.5],
+            zoom: 8,
+            basemap: "topo"
+        });
+    }
+    dojo.ready(init);
+</script>
+</html>
