@@ -10,14 +10,32 @@
 <div style="height: 815px" id="mapDiv"></div>
 </body>
 <script>
-
-    var map=null;
+    var map = null;
     function init() {
         map = new esri.Map("mapDiv", {
-            center: [-118, 34.5],
-            zoom: 8,
+            center: [118, 31.5],
+            zoom: 7,
             basemap: "topo"
         });
+
+
+        var layer = new esri.layers.GraphicsLayer();
+        layer.on("click", function (evt) {
+            map.infoWindow.setTitle("xxx");
+            map.infoWindow.setContent(evt.graphic.attributes.id);
+            map.infoWindow.show(map.toScreen(evt.mapPoint));
+        });
+        map.addLayer(layer);
+
+        var geometry1 = new esri.geometry.Point(118.1, 31.32);
+        var symbol1 = new esri.symbol.PictureMarkerSymbol("location.png", 35, 35);
+        var g1 = new esri.Graphic(geometry1, symbol1,{id:2,name:'22'});
+        layer.add(g1);
+
+        var geometry = new esri.geometry.Point(118.43, 31.31);
+        var symbol = new esri.symbol.PictureMarkerSymbol("location.png", 35, 35);
+        var g = new esri.Graphic(geometry, symbol,{id:1,name:'11'});
+        layer.add(g);
     }
     dojo.ready(init);
 </script>
